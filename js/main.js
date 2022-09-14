@@ -71,3 +71,29 @@ testBtns.forEach((e) => {
     clearInterval(test);
   });
 });
+// portfolio filter
+const portfolioBtns = document.querySelectorAll(
+  ".portfolio .container-fluid ul li"
+);
+const portfolioPics = document.querySelectorAll(
+  ".portfolio .container-fluid .row .pic"
+);
+portfolioBtns.forEach((e) => {
+  e.addEventListener("click", () => {
+    portfolioBtns.forEach((e) => {
+      e.classList.remove("active");
+    });
+    e.classList.add("active");
+    portfolioPics.forEach((ele) => {
+      if (e.getAttribute("data-filter") === "all") {
+        ele.style.setProperty("display", "block");
+        return;
+      }
+      if (ele.getAttribute("data-filter") === e.getAttribute("data-filter")) {
+        ele.style.setProperty("display", "block");
+      } else {
+        ele.style.setProperty("display", "none");
+      }
+    });
+  });
+});
