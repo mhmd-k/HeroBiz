@@ -44,3 +44,30 @@ let n = setInterval(() => {
     slidDestance += 200;
   }
 }, 5000);
+// testomenials slider
+const testImges = document.querySelectorAll(".services .carousel-item");
+const testBtns = document.querySelectorAll(
+  ".services .carousel-indicators button"
+);
+function testSlide() {
+  let active;
+  for (let i = 0; i < testImges.length; i++) {
+    if (testImges[i].classList.contains("active")) {
+      active = i;
+    }
+    testImges[i].classList.remove("active");
+    testBtns[i].classList.remove("active");
+  }
+  active++;
+  if (active === testImges.length) {
+    active = 0;
+  }
+  testImges[active].classList.add("active");
+  testBtns[active].classList.add("active");
+}
+let test = setInterval(testSlide, 5000);
+testBtns.forEach((e) => {
+  e.addEventListener("click", () => {
+    clearInterval(test);
+  });
+});
