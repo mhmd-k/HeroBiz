@@ -97,3 +97,29 @@ portfolioBtns.forEach((e) => {
     });
   });
 });
+// portfolio images zoom
+const PortZoomBtns = document.querySelectorAll(".portfolio .pic-info a");
+const closeImagesBtn = document.querySelector(".opacity button");
+PortZoomBtns.forEach((e) => {
+  e.addEventListener("click", (link) => {
+    link.preventDefault();
+    document.querySelector("body > .opacity").classList.remove("d-none");
+    document.querySelector("body > .port-slid").classList.remove("d-none");
+    let pics = document.querySelectorAll(".port-slid img");
+    for (let i = 0; i < pics.length; i++) {
+      if (
+        e.parentElement.parentElement.firstElementChild.getAttribute("src") ===
+        pics[i].getAttribute("src")
+      ) {
+        pics.forEach((pic) => {
+          pic.parentElement.classList.remove("active");
+        });
+        pics[i].parentElement.classList.add("active");
+      }
+    }
+  });
+});
+closeImagesBtn.addEventListener("click", () => {
+  document.querySelector("body > .opacity").classList.add("d-none");
+  document.querySelector("body > .port-slid").classList.add("d-none");
+});
