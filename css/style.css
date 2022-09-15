@@ -58,11 +58,11 @@ a.btn:hover {
     position: relative;
   }
 
-  .navbar .offcanvas-body ul.navbar-nav .links-small-screen:hover > a {
+  .navbar .offcanvas-body ul.navbar-nav .links-small-screen:hover a,
+  .navbar .offcanvas-body ul.navbar-nav .links-small-screen a.active {
     color: var(--secodary-color) !important;
   }
-
-  .navbar .offcanvas-body ul.navbar-nav .links-small-screen::before {
+  .navbar .offcanvas-body ul.navbar-nav .links-small-screen a::before {
     content: "";
     position: absolute;
     width: 0;
@@ -70,7 +70,7 @@ a.btn:hover {
     background-color: var(--secodary-color);
     left: 50%;
     transform: translateX(-50%);
-    bottom: 0;
+    bottom: 5px;
     transition: var(--transition);
     -webkit-transition: var(--transition);
     -moz-transition: var(--transition);
@@ -81,7 +81,8 @@ a.btn:hover {
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
   }
-  .navbar .offcanvas-body ul.navbar-nav .links-small-screen:hover::before {
+  .navbar .offcanvas-body ul.navbar-nav .links-small-screen a:hover::before,
+  .navbar .offcanvas-body ul.navbar-nav .links-small-screen a.active::before {
     width: 80%;
   }
   .navbar::before {
@@ -856,6 +857,13 @@ a.btn:hover {
   -ms-transform: translateY(-50px) scale(0.5);
   -o-transform: translateY(-50px) scale(0.5);
 }
+.portfolio .container-fluid .row .pic {
+  transition: 1s ease-in-out;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+}
 .portfolio .container-fluid .row .pic:hover::before {
   opacity: 1;
 }
@@ -943,14 +951,14 @@ body > .port-slid .left-arrow {
 /* end portfolio slider */
 /* end portfolio */
 /* our team */
-.team .container .row .col-12:hover .member-social {
+.team .container .row .col-11:hover .member-social {
   opacity: 1;
 }
-.team .container .row .col-12 .member-img {
+.team .container .row .col-11 .member-img {
   max-height: 400px;
   overflow: hidden;
 }
-.team .container .row .col-12 .member-social {
+.team .container .row .col-11 .member-social {
   left: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
@@ -966,7 +974,7 @@ body > .port-slid .left-arrow {
   -ms-transition: var(--transition);
   -o-transition: var(--transition);
 }
-.team .container .row .col-12 .member-info svg {
+.team .container .row .col-11 .member-info svg {
   padding: 10px;
   background-color: var(--main-color);
   font-size: 20px;
@@ -983,10 +991,10 @@ body > .port-slid .left-arrow {
   -o-transition: var(--transition);
   cursor: pointer;
 }
-.team .container .row .col-12 .member-info svg:hover {
+.team .container .row .col-11 .member-info svg:hover {
   background-color: var(--secodary-color);
 }
-.team .container .row .col-12 .member-name {
+.team .container .row .col-11 .member-name {
   transform: translateY(-40px);
   -webkit-transform: translateY(-40px);
   -moz-transform: translateY(-40px);
@@ -994,7 +1002,7 @@ body > .port-slid .left-arrow {
   -o-transform: translateY(-40px);
   background-color: white;
 }
-.team .container .row .col-12 .member-name h4 {
+.team .container .row .col-11 .member-name h4 {
   color: var(--offcanvas-background);
 }
 /* end our team */
