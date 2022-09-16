@@ -86,16 +86,13 @@ portfolioBtns.forEach((e) => {
     e.classList.add("active");
     portfolioPics.forEach((ele) => {
       if (e.getAttribute("data-filter") === "all") {
-        ele.style.removeProperty("width");
-        ele.style.removeProperty("height");
+        ele.style.setProperty("display", "block");
         return;
       }
       if (ele.getAttribute("data-filter") === e.getAttribute("data-filter")) {
-        ele.style.removeProperty("width");
-        ele.style.removeProperty("height");
+        ele.style.setProperty("display", "block");
       } else {
-        ele.style.setProperty("width", "0");
-        ele.style.setProperty("height", "0");
+        ele.style.setProperty("display", "none");
       }
     });
   });
@@ -131,29 +128,9 @@ const links = document.querySelectorAll(
   ".navbar .offcanvas-body ul.navbar-nav .links-small-screen a"
 );
 window.addEventListener("scroll", () => {
-  document.querySelectorAll(".main-heading h2").forEach((e) => {
-    if (
-      window.scrollY >= e.offsetTop &&
-      window.scrollY <=
-        e.parentElement.parentElement.parentElement.offsetHeight + e.offsetTop
-    ) {
-      links.forEach((link) => {
-        if (
-          link.getAttribute("href").toLowerCase().split("#").join("") ===
-          e.id.toLowerCase()
-        ) {
-          link.classList.add("active");
-        }
-      });
-    } else if (
-      window.scrollY >
-        e.parentElement.parentElement.parentElement.offsetHeight +
-          e.offsetTop ||
-      window.scrollY < 700
-    ) {
-      links.forEach((link) => {
-        link.classList.remove("active");
-      });
+  document.querySelectorAll(".scroll-transition").forEach((e) => {
+    if (window.scrollY >= e.offsetTop - 280) {
+      e.classList.remove("scroll", "scroll-scall", "scroll-small-scale");
     }
   });
 });
